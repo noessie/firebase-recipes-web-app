@@ -1,4 +1,4 @@
-import firebase from "./FirebaseConfig";
+
 
 import "./App.css";
 
