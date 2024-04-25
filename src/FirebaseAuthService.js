@@ -17,9 +17,9 @@ const resetPassword = (email) => {
     return auth.sendPasswordResetEmail(email);
 };
 
-const updatePassword = (password) => {
-    return auth.currentUser.updatePassword(password);
-};
+// const updatePassword = (password) => {
+//     return auth.currentUser.updatePassword(password);
+// };
 
 const loginWithGoogle = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
@@ -37,7 +37,7 @@ const FirebaseAuthService = {
     loginUser,
     logoutUser,
     resetPassword,
-    updatePassword,
+    // updatePassword,
     loginWithGoogle,
     subscribeToAuthChanges
 };
