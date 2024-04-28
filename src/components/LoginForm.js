@@ -8,7 +8,7 @@ function LoginForm({ existingUser }) {
   async function handleSubmit(event) {
     event.preventDefault();
     try {
-      await FirebaseAuthService.registerUser(username, password);
+      await FirebaseAuthService.loginUser(username, password);
       setUsername("");
       setPassword("");
     } catch (error) {
@@ -79,7 +79,7 @@ function LoginForm({ existingUser }) {
             />
           </label>
           <div className="button-box">
-            <button className="primary-button" type="submit">Submit</button>
+            <button className="primary-button" type="submit">Login</button>
             <button type="button" className="primary-button" onClick={handleResetPassword}>Reset Password</button>
             <button type="button" className="primary-button" onClick={handleLoginWithGoogle}>Login with Google</button>
           </div>
