@@ -85,7 +85,7 @@ function App() {
                         Category: {recipe.category}
                       </div>
                       <div className="recipe-field">
-                        Publish Date: {recipe.publishDate.toDateString()}
+                        Publish Date: {recipe.publishDate.toString()}
                       </div>
                     </div>
                   );

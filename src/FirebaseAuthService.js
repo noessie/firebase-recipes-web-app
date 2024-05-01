@@ -37,7 +37,6 @@ const FirebaseAuthService = {
     loginUser,
     logoutUser,
     resetPassword,
-    // updatePassword,
     loginWithGoogle,
     subscribeToAuthChanges
 };
