@@ -1,6 +1,7 @@
 import { useState } from "react";
 import FirebaseAuthService from "../FirebaseAuthService";
 
+
 function LoginForm({ existingUser }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -16,7 +17,7 @@ function LoginForm({ existingUser }) {
     }
   }
 
-  function handleLogout() {
+  async function handleLogout() {
     FirebaseAuthService.logoutUser();
   }
 
@@ -26,16 +27,16 @@ function LoginForm({ existingUser }) {
       return;
     }
     try {
-      await FirebaseAuthService.resetPassword(username);
-      alert("Password reset email sent!");
-    } catch (error) {
+      await FirebaseAuthService.sendPasswordResetEmail(username);
+      alert("Password reset email sent.");
+    }catch (error) {
       alert(error.message);
     }
   }
 
   async function handleLoginWithGoogle() {
     try {
-      await FirebaseAuthService.loginWithGoogle();
+      await  FirebaseAuthService.loginWithGoogle();
     } catch (error) {
       alert(error.message);
     }
@@ -79,9 +80,23 @@ function LoginForm({ existingUser }) {
             />
           </label>
           <div className="button-box">
-            <button className="primary-button" type="submit">Login</button>
-            <button type="button" className="primary-button" onClick={handleResetPassword}>Reset Password</button>
-            <button type="button" className="primary-button" onClick={handleLoginWithGoogle}>Login with Google</button>
+            <button className="primary-button" type="submit">
+              Login
+            </button>
+            <button
+              type="button"
+              className="primary-button"
+              onClick={handleResetPassword}
+            >
+              Reset Password
+            </button>
+            <button
+              type="button"
+              className="primary-button"
+              onClick={handleLoginWithGoogle}
+            >
+              Login with Google
+            </button>
           </div>
         </form>
       )}
