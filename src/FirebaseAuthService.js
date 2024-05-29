@@ -7,7 +7,7 @@ const registerUser = async (email, password) => {
 };
 
 const loginUser = (email, password) => {
-  return auth.signInWithEmailAndPassword(auth, email, password);
+  return auth.signInWithEmailAndPassword( email, password);
 };
 
 const logoutUser = () => {
