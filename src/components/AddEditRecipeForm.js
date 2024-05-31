@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
+import ImageUploadPreview from "./ImageUploadPreview";
 
 function AddEditRecipeForm({
   existingRecipe,
@@ -16,6 +17,7 @@ function AddEditRecipeForm({
       setDirection(existingRecipe.direction);
       setPublishDate(existingRecipe.publishDate.split("T")[0]);
       setIngredients(existingRecipe.ingredients);
+      setImageUrl(existingRecipe.imageUrl);
     } else {
       resetForm();
     }
@@ -29,11 +31,16 @@ function AddEditRecipeForm({
   const [direction, setDirection] = useState("");
   const [ingredients, setIngredients] = useState([]);
   const [ingredientName, setIngredientName] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
 
   function handleRecipeFormSubmit(e) {
     e.preventDefault();
     if (ingredients.length === 0) {
       alert("Bitte fügen Sie mindestens eine Zutat hinzu.");
+      return;
+    }
+    if (!imageUrl) {
+      alert("Bitte laden Sie ein Bild für das Rezept hoch.");
       return;
     }
     const isPublished = new Date(publishDate) <= new Date() ? true : false;
@@ -44,6 +51,7 @@ function AddEditRecipeForm({
       direction,
       ingredients,
       isPublished,
+      imageUrl,
     };
     if (existingRecipe) {
       handleUpdateRecipe(newRecipe, existingRecipe.id);
@@ -54,10 +62,10 @@ function AddEditRecipeForm({
   }
 
   function handleAddIngredient(e) {
+    e.preventDefault();
     if (e.key && e.key !== "Enter") {
       return;
     }
-    e.preventDefault();
     if (!ingredientName) {
       alert("Bitte geben Sie eine Zutat ein.");
       return;
@@ -74,6 +82,7 @@ function AddEditRecipeForm({
     setDirection("");
     setIngredients([]);
     setIngredientName("");
+    setImageUrl("");
   }
 
   return (
@@ -83,6 +92,19 @@ function AddEditRecipeForm({
     >
       {existingRecipe ? <h2>Update the recipe</h2> : <h2>Add a new recipe</h2>}
       <div className="top-form-section">
+        <div className="image-input-box">
+          Recipe Image{" "}
+          <ImageUploadPreview
+            basePath="recipes"
+            existingImageUrl={imageUrl}
+            handleUploadFinish={(downloadUrl) => {
+              setImageUrl(downloadUrl);
+            }}
+            handleUploadCancel={() => {
+              setImageUrl("");
+            }}
+          ></ImageUploadPreview>
+        </div>
         <div className="fields">
           <label className="recipe-label input-label">
             Rezeptame:
@@ -207,20 +229,21 @@ function AddEditRecipeForm({
         </button>
         {existingRecipe ? (
           <>
-          <button
-            type="button"
-            className="primary-button action-button"
-            onClick={handleEditRecipeCancel}
-          >
-            Cancel
+            <button
+              type="button"
+              className="primary-button action-button"
+              onClick={handleEditRecipeCancel}
+            >
+              Cancel
             </button>
             <button
               type="button"
               className="primary-button action-button"
               onClick={() => handleDeleteRecipe(existingRecipe.id)}
-            >Delete
-          </button>
-            </>
+            >
+              Delete
+            </button>
+          </>
         ) : null}
       </div>
     </form>
