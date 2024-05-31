@@ -1,0 +1,126 @@
+[debug] [2024-06-05T06:02:14.547Z] ----------------------------------------------------------------------
+[debug] [2024-06-05T06:02:14.549Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Gigi\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions
+[debug] [2024-06-05T06:02:14.549Z] CLI Version:   13.7.2
+[debug] [2024-06-05T06:02:14.549Z] Platform:      win32
+[debug] [2024-06-05T06:02:14.550Z] Node Version:  v20.11.0
+[debug] [2024-06-05T06:02:14.550Z] Time:          Wed Jun 05 2024 08:02:14 GMT+0200 (Mitteleuropäische Sommerzeit)
+[debug] [2024-06-05T06:02:14.550Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-06-05T06:02:14.617Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-06-05T06:02:14.617Z] > authorizing via signed-in user (noessie7@gmail.com)
+[debug] [2024-06-05T06:02:14.618Z] [iam] checking project fir-recipes-95372 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2024-06-05T06:02:14.619Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/fir-recipes-95372:testIamPermissions [none]
+[debug] [2024-06-05T06:02:14.619Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/fir-recipes-95372:testIamPermissions x-goog-quota-user=projects/fir-recipes-95372
+[debug] [2024-06-05T06:02:14.620Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/fir-recipes-95372:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2024-06-05T06:02:14.897Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/fir-recipes-95372:testIamPermissions 200
+[debug] [2024-06-05T06:02:14.897Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/fir-recipes-95372:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2024-06-05T06:02:14.898Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/fir-recipes-95372/serviceAccounts/fir-recipes-95372@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2024-06-05T06:02:14.898Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/fir-recipes-95372/serviceAccounts/fir-recipes-95372@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2024-06-05T06:02:15.717Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/fir-recipes-95372/serviceAccounts/fir-recipes-95372@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2024-06-05T06:02:15.717Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/fir-recipes-95372/serviceAccounts/fir-recipes-95372@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'fir-recipes-95372'...
+[info] 
+[info] i  deploying functions 
+[debug] [2024-06-05T06:02:15.720Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/fir-recipes-95372 [none]
+[debug] [2024-06-05T06:02:16.041Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/fir-recipes-95372 200
+[debug] [2024-06-05T06:02:16.041Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/fir-recipes-95372 {"projectId":"fir-recipes-95372","projectNumber":"838503669003","displayName":"firebase-recipes","name":"projects/fir-recipes-95372","resources":{"hostingSite":"fir-recipes-95372","storageBucket":"fir-recipes-95372.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_98e1c578-e45e-4331-9767-e5781c2cd228"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2024-06-05T06:02:16.043Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/fir-recipes-95372/services/cloudfunctions.googleapis.com [none]
+[debug] [2024-06-05T06:02:16.043Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/fir-recipes-95372/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/fir-recipes-95372
+[debug] [2024-06-05T06:02:16.044Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/fir-recipes-95372/services/runtimeconfig.googleapis.com [none]
+[debug] [2024-06-05T06:02:16.044Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/fir-recipes-95372/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/fir-recipes-95372
+[debug] [2024-06-05T06:02:16.045Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/fir-recipes-95372/services/cloudbuild.googleapis.com [none]
+[debug] [2024-06-05T06:02:16.045Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/fir-recipes-95372/services/cloudbuild.googleapis.com x-goog-quota-user=projects/fir-recipes-95372
+[debug] [2024-06-05T06:02:16.046Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/fir-recipes-95372/services/artifactregistry.googleapis.com [none]
+[debug] [2024-06-05T06:02:16.046Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/fir-recipes-95372/services/artifactregistry.googleapis.com x-goog-quota-user=projects/fir-recipes-95372
+[debug] [2024-06-05T06:02:17.065Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/fir-recipes-95372/services/cloudfunctions.googleapis.com 200
+[debug] [2024-06-05T06:02:17.066Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/fir-recipes-95372/services/cloudfunctions.googleapis.com [omitted]
+[info] +  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2024-06-05T06:02:17.097Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/fir-recipes-95372/services/artifactregistry.googleapis.com 200
+[debug] [2024-06-05T06:02:17.097Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/fir-recipes-95372/services/artifactregistry.googleapis.com [omitted]
+[info] +  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2024-06-05T06:02:17.103Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/fir-recipes-95372/services/cloudbuild.googleapis.com 200
+[debug] [2024-06-05T06:02:17.103Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/fir-recipes-95372/services/cloudbuild.googleapis.com [omitted]
+[info] +  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2024-06-05T06:02:17.121Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/fir-recipes-95372/services/runtimeconfig.googleapis.com 200
+[debug] [2024-06-05T06:02:17.121Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/fir-recipes-95372/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2024-06-05T06:02:17.121Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/fir-recipes-95372/adminSdkConfig [none]
+[debug] [2024-06-05T06:02:17.745Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/fir-recipes-95372/adminSdkConfig 200
+[debug] [2024-06-05T06:02:17.746Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/fir-recipes-95372/adminSdkConfig {"projectId":"fir-recipes-95372","storageBucket":"fir-recipes-95372.appspot.com","locationId":"us-central"}
+[debug] [2024-06-05T06:02:17.746Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/fir-recipes-95372/configs [none]
+[debug] [2024-06-05T06:02:18.075Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/fir-recipes-95372/configs 200
+[debug] [2024-06-05T06:02:18.075Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/fir-recipes-95372/configs {}
+[debug] [2024-06-05T06:02:18.076Z] Validating nodejs source
+[debug] [2024-06-05T06:02:19.206Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^11.8.0",
+    "firebase-functions": "^5.0.1"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-06-05T06:02:19.206Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2024-06-05T06:02:19.207Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-06-05T06:02:19.215Z] Found firebase-functions binary at 'C:\Webentwickler Projekte\firebase-recipes-webapp\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8922
+
+[error] node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use :::3005
+    at Server.setupListenHandle [as _listen2] (node:net:1872:16)
+    at listenInCluster (node:net:1920:12)
+    at Server.listen (node:net:2008:7)
+    at Function.listen (C:\Webentwickler Projekte\firebase-recipes-webapp\functions\node_modules\express\lib\application.js:635:24)
+    at Object.<anonymous> (C:\Webentwickler Projekte\firebase-recipes-webapp\functions\recipesApi.js:22:7)
+    at Module._compile (node:internal/modules/cjs/loader:1376:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1435:10)
+    at Module.load (node:internal/modules/cjs/loader:1207:32)
+    at Module._load (node:internal/modules/cjs/loader:1023:12)
+    at Module.require (node:internal/modules/cjs/loader:1235:19)
+Emitted 'error' event on Server instance at:
+    at emitErrorNT (node:net:1899:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+  code: 'EADDRINUSE',
+  errno: -4091,
+  syscall: 'listen',
+  address: '::',
+  port: 3005
+}
+
+Node.js v20.11.0
+
+[debug] [2024-06-05T06:02:19.763Z] Failed to call quitquitquit. This often means the server failed to start request to http://localhost:8922/__/quitquitquit failed, reason:  {"message":"request to http://localhost:8922/__/quitquitquit failed, reason: ","type":"system","errno":"ECONNREFUSED","code":"ECONNREFUSED"}
+[debug] [2024-06-05T06:02:19.864Z] FetchError: request to http://127.0.0.1:8922/__/functions.yaml failed, reason: read ECONNRESET
+    at ClientRequest.<anonymous> (C:\Users\Gigi\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\node-fetch\lib\index.js:1501:11)
+    at ClientRequest.emit (node:events:518:28)
+    at ClientRequest.emit (node:domain:488:12)
+    at Socket.socketErrorListener (node:_http_client:495:9)
+    at Socket.emit (node:events:518:28)
+    at Socket.emit (node:domain:488:12)
+    at emitErrorNT (node:internal/streams/destroy:169:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:128:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+[error] 
+[error] Error: An unexpected error has occurred.
