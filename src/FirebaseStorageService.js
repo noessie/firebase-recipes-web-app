@@ -1,8 +1,9 @@
 import firebase from "./FirebaseConfig";
+import "firebase/storage";
 
 const storageRef = firebase.storage().ref();
 
-const uploadFile = (file, fullFilePath, progressCallback) => {
+const uploadFile = async(file, fullFilePath, progressCallback) => {
   const uploadTask = storageRef.child(fullFilePath).put(file);
   uploadTask.on(
     "state_changed",
@@ -15,10 +16,9 @@ const uploadFile = (file, fullFilePath, progressCallback) => {
       (error) => {
       throw error;
     });
-  return uploadTask.then(async () => {
-    const downloadURL = await uploadTask.snapshot.ref.getDownloadURL();
-    return downloadURL;
-  });
+  await uploadTask;
+  const downloadURL = await uploadTask.snapshot.ref.getDownloadURL();
+  return await downloadURL;
 };
 
 const deleteFile = (fileDownloadUrl) => {

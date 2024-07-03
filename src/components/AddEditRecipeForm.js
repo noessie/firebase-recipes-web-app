@@ -47,7 +47,7 @@ function AddEditRecipeForm({
     const newRecipe = {
       name,
       category,
-      publishDate: new Date(publishDate).toISOString(),
+      publishDate: new Date(publishDate),
       direction,
       ingredients,
       isPublished,

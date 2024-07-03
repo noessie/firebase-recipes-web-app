@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
-import FirebaseFirestoreService from "../FirebaseFirestoreService";
 import FirebaseStorageService from "../FirebaseStorageService";
 
 function ImageUploadPreview({
@@ -30,11 +29,11 @@ function ImageUploadPreview({
       alert("No file selected");
       return;
     }
-    const generateFileId = uuidv4();
+    const generatedFileId = uuidv4();
     try {
-      const downloadUrl = await FirebaseFirestoreService.uploadFile(
+      const downloadUrl = await FirebaseStorageService.uploadFile(
         file,
-        `${basePath}/${generateFileId}`,
+        `${basePath}/${generatedFileId}`,
         setUploadProgress
       );
       setImageUrl(downloadUrl);
@@ -75,14 +74,13 @@ function ImageUploadPreview({
       ) : null}
       {imageUrl ? (
         <div className="image-preview">
-          <image src={imageUrl} alt={imageUrl} className="image" />
-
+          <img src={imageUrl} alt={imageUrl} className="image" />
           <button
             type="button"
             className="primary-button"
             onClick={handleCancelImageClick}
           >
-            Cancel
+            Cancel Image
           </button>
         </div>
       ) : null}
