@@ -22,7 +22,7 @@ function ImageUploadPreview({
     }
   }, [existingImageUrl]);
 
-  async function handleFileChange(event) {
+  async function handleFileChanged(event) {
     const files = event.target.files;
     const file = files[0];
     if (!file) {
@@ -60,7 +60,7 @@ function ImageUploadPreview({
         type="file"
         accept="image/*"
         ref={fileInputRef}
-        onChange={handleFileChange}
+        onChange={handleFileChanged}
         hidden={uploadProgress > -1 || imageUrl}
       />
       {!imageUrl && uploadProgress > -1 ? (

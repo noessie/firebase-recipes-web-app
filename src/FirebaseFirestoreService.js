@@ -6,10 +6,6 @@ const createDocument = (collection, document) => {
   return firestore.collection(collection).add(document);
 };
 
-const readDocument = (collection, id) => {
-  return firestore.collection(collection).doc(id).get();
-};
-
 const readDocuments = async ({
   collection,
   queries,
@@ -35,7 +31,7 @@ const readDocuments = async ({
     collectionRef = collectionRef.limit(perPage);
   }
   if (cusorID) {
-    const document = await readDocument(collection, cusorID);
+    const document = await readDocuments(collection, cusorID);
     collectionRef = collectionRef.startAfter(document);
   }
   return collectionRef.get();

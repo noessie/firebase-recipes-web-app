@@ -62,10 +62,11 @@ function AddEditRecipeForm({
   }
 
   function handleAddIngredient(e) {
-    e.preventDefault();
+   
     if (e.key && e.key !== "Enter") {
       return;
     }
+    e.preventDefault();
     if (!ingredientName) {
       alert("Bitte geben Sie eine Zutat ein.");
       return;
@@ -93,7 +94,7 @@ function AddEditRecipeForm({
       {existingRecipe ? <h2>Update the recipe</h2> : <h2>Add a new recipe</h2>}
       <div className="top-form-section">
         <div className="image-input-box">
-          Recipe Image{" "}
+          Recipe Image
           <ImageUploadPreview
             basePath="recipes"
             existingImageUrl={imageUrl}
